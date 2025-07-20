@@ -12,7 +12,8 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_07_20_174910) do
   create_table "artigos", force: :cascade do |t|
-    t.string "title"
+    t.string "titulo"
+    t.string "descricao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
