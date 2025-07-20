@@ -3,4 +3,8 @@ class ArtigosController < ApplicationController
     # byebug
     @artigo = Artigo.find(params[:id])
   end
+
+  def index
+    @artigos = Artigo.all
+  end
 end

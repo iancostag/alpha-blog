@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
-  resources :artigos, only: [ :show ]
+  resources :artigos, only: [ :show, :index ]
 end

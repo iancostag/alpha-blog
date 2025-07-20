@@ -1,0 +1,19 @@
+<h1>Listagem dos Artigos</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Descrição</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @artigos.each do |artigo|%>
+            <tr>
+                <td><%= artigo.titulo%></td>
+                <td><%= artigo.descricao%></td>
+                <td> Ação</td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
