@@ -1,0 +1,45 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+
+#home-conteudo {
+    flex: 1;
+    background-color: lightgray;
+}
+
+
+.navbar{
+    background: black ;
+}
+
+.nav-link{
+    color:white
+}
+
+#home-container{
+    margin-top: 20px;
+
+}
+.navbar-brand{
+    color: white;
+}
+.jumbotron{
+    font-size: 20px;
+    background-image: url('/imagem1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+}
+
+footer{
+    text-align: center;
+    font-size: 20px;
+}

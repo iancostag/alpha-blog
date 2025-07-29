@@ -1,23 +1,30 @@
-<h1>Listagem dos Artigos</h1>
-<table>
-    <thead>
-        <tr>
-            <th colspan="1">Titulo</th>
-            <th>Descrição</th>
-            <th colspan="3">Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @artigos.each do |artigo|%>
-            <tr>
-                <td><%= artigo.titulo%></td>
-                <td><%= artigo.descricao%></td>
-                <td><%= button_to 'Detalhes', artigo_path(artigo), method: :get%></td>
-                <td><%= button_to 'Editar', edit_artigo_path(artigo), method: :get%></td>
-                <td><%= button_to 'Excluir', artigo_path(artigo), method: :delete, data: { confirm: "Tem certeza?" } %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
+    <div id="home-conteudo">
 
-<%= button_to 'Criar novo Artigo', new_artigo_path, method: :get%>
+        <h1 class="text-center mt-4">Listagem dos Artigos</h1>
+
+    <div class="container">
+        <div class="row justify-content-md-center ">
+            <div class="col-8 mt-4 ">
+            <% @artigos.each do |artigo|%>
+
+                <div class="card text-center shadow mb-5 bg-white rounded">
+                    <h5 class="card-header fst-italic">Postado por Ian Costa</h5>
+                    <div class="card-body">
+                        <h5 class="card-title"><%= link_to artigo.titulo, artigo_path(artigo), class:"text-success  " %></h5>
+                        <p class="card-text"><td><%= truncate(artigo.descricao, length:100)%></td></p>
+                        <%= button_to 'Ver Artigo', artigo_path(artigo), method: :get, class: "btn btn-outline-primary"%>
+                        <%= button_to 'Editar', edit_artigo_path(artigo), method: :get, class: "btn btn-outline-info"%>
+                        <%= button_to 'Excluir', artigo_path(artigo),method: :delete, class: "btn btn-outline-danger"%>
+                    </div>
+                    <div class="card-footer text-muted">
+                        <small>Criado <%= time_ago_in_words(artigo.created_at)%> atrás,
+                                Editado <%= time_ago_in_words(artigo.updated_at)%> atrás
+                        </small>
+                    </div>
+                </div>
+            <% end %>
+            </div>
+        </div>
+    </div>
+
+></div>
