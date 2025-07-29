@@ -1,27 +1,2 @@
 <h1> Edite um artigo aqui!</h1>
-
-<% if @artigo.errors.any? %>
-    <h2>Os seguintes erros ocorreram</h2>
-    <ul>
-        <% @artigo.errors.full_messages.each do |msg|%>
-            <li> <%= msg%> </li>
-        <% end %>
-    </ul>
-<% end %>
-
-<%= form_with(model: @artigo,local: true) do |f| %>
-    <p>
-        <%= f.label :titulo %><br/>
-        <%= f.text_field :titulo%>
-    </p>
-
-    <p>
-        <%= f.label :descricao%><br/>
-        <%= f.text_area :descricao%>
-    </p>
-
-    <p>
-        <%= f.submit %>
-    </p>
-
-<% end %>
+<%= render 'form'%>

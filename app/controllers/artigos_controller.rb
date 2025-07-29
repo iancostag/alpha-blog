@@ -1,7 +1,7 @@
 class ArtigosController < ApplicationController
+  before_action :set_artigo, only: [ :show, :edit, :update, :destroy ]
   def show
     # byebug
-    @artigo = Artigo.find(params[:id])
   end
 
 
@@ -14,7 +14,7 @@ class ArtigosController < ApplicationController
   end
 
   def create
-    @artigo = Artigo.new(params.require(:artigo).permit(:titulo, :descricao))
+    @artigo = Artigo.new(parametros_artigos)
     if @artigo.save
       flash[:notice] = "Artigo salvo com sucesso!"
       redirect_to @artigo
@@ -24,16 +24,29 @@ class ArtigosController < ApplicationController
   end
 
   def edit
-        @artigo = Artigo.find(params[:id])
   end
 
   def update
-    @artigo = Artigo.find(params[:id])
-    if @artigo.update(params.require(:artigo).permit(:titulo, :descricao))
+    if @artigo.update(parametros_artigos)
       flash[:notice] = "Artigo atualizado com sucesso!"
       redirect_to @artigo
     else
-      render "Edit"
+      render "edit"
     end
+  end
+
+  def destroy
+    @artigo.destroy
+    redirect_to artigos_path
+  end
+
+  private
+
+  def set_artigo
+  @artigo = Artigo.find(params[:id])
+  end
+
+  def parametros_artigos
+    params.require(:artigo).permit(:titulo, :descricao)
   end
 end

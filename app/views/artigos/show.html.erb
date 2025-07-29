@@ -1,4 +1,7 @@
-<h1>Mostrando os detalhes dos artigos
+<h1>Mostrando os detalhes dos artigos</h1>   
     <p>titulo: <%= @artigo.titulo%> </p>
     <p>descrição: <%= @artigo.descricao  %></p>
-</h1>   
+
+<%= button_to 'Editar', edit_artigo_path(@artigo), method: :get%>
+<%= button_to 'Excluir', artigo_path(@artigo), method: :delete%>
+<%= button_to 'Voltar', artigos_path, method: :get%>

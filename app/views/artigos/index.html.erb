@@ -2,9 +2,9 @@
 <table>
     <thead>
         <tr>
-            <th>Titulo</th>
+            <th colspan="1">Titulo</th>
             <th>Descrição</th>
-            <th>Ações</th>
+            <th colspan="3">Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -12,8 +12,12 @@
             <tr>
                 <td><%= artigo.titulo%></td>
                 <td><%= artigo.descricao%></td>
-                <td> Ação</td>
+                <td><%= button_to 'Detalhes', artigo_path(artigo), method: :get%></td>
+                <td><%= button_to 'Editar', edit_artigo_path(artigo), method: :get%></td>
+                <td><%= button_to 'Excluir', artigo_path(artigo), method: :delete, data: { confirm: "Tem certeza?" } %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+
+<%= button_to 'Criar novo Artigo', new_artigo_path, method: :get%>
